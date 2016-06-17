@@ -1,0 +1,2 @@
+defmodule FinBot do
+end
