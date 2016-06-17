@@ -30,4 +30,4 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :maru, FinBot.API,
-http: [port: 8880]
+http: [port: {:system, "PORT"}]
