@@ -36,7 +36,7 @@ defmodule FinBot.Router.Messenger do
 		post do
 			IO.inspect conn
 			IO.inspect params
-			text("okay")
+			text(conn, "okay")
 		end
 	end
 end
