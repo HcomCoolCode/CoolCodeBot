@@ -21,17 +21,7 @@ defmodule FinBot.Router.Messenger do
 
 		desc "main entry point got FB Messenger"
 		params do
-			optional :object, type: String
-			optional :entry, type: List do
-				optional :id, type: String
-				optional :time, type: String
-				optional :messaging, type: List do
-					optional :optin
-					optional :message
-					optional :delivery
-					optional :postBack
-				end
-			end
+			requires :page, type: Json
 		end
 		post do
 			IO.inspect conn
