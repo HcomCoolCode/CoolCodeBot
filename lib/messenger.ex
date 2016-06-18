@@ -20,9 +20,6 @@ defmodule FinBot.Router.Messenger do
 		end
 
 		desc "main entry point got FB Messenger"
-		params do
-			requires :page, type: Json
-		end
 		post do
 			IO.inspect conn
 			IO.inspect params
