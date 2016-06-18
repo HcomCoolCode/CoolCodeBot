@@ -3,7 +3,7 @@ defmodule FinBot.Router.Messenger do
 
 	namespace :messenger do
 
-		desc "handles requests from FB Messenger"
+		desc "handshake with FB Messenger"
 		get do
 			IO.inspect conn
 			query_params = fetch_query_params(conn).query_params
@@ -18,5 +18,28 @@ defmodule FinBot.Router.Messenger do
 					text(conn, "what?")
 			end
 		end
+
+		desc "main entry point got FB Messenger"
+		params do
+			optional :object, type: String
+			optional :entry, type: List do
+				optional :id, type: String
+				optional :time, type: String
+				optional :messaging, type: List do
+					optional :optin
+					optional :message
+					optional :delivery
+					optional :postBack
+				end
+			end
+		end
+		post do
+			IO.inspect conn
+			IO.inspect params
+			text("okay")
+		end
 	end
 end
+
+
+
