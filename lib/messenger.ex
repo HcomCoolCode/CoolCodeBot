@@ -20,6 +20,10 @@ defmodule FinBot.Router.Messenger do
 		end
 
 		desc "main entry point got FB Messenger"
+		pipeline do
+			plug Plug.Parsers, parsers: [:json],
+			json_decoder: Poison
+		end
 		post do
 			IO.inspect conn
 			IO.inspect params
