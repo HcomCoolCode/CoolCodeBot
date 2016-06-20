@@ -1,6 +1,8 @@
 defmodule FinBot.Router.Messenger do
 	use Maru.Router
 
+	@manager :fb_msg_dispatch
+	
 	namespace :messenger do
 
 		desc "handshake with FB Messenger"
@@ -24,7 +26,7 @@ defmodule FinBot.Router.Messenger do
 			json_decoder: Poison
 		end
 		post do
-			IO.inspect conn.params
+			GenEvent.notify(@manager, {:messages, conn.params})
 			text(conn, "okay")
 		end
 	end
