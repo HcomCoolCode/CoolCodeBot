@@ -13,6 +13,13 @@ defmodule FinBot.Handlers.EchoSendHandler do
 		IO.inspect(text)
 		senderId = message["sender"]["id"]
 		IO.inspect(senderId)
+
+		IO.inspect( System.get_env("FB_PAGE_ACCESS_TOKEN"))
+
+		url = "https://graph.facebook.com/v2.6/me/messages?access_token=" <> System.get_env("FB_PAGE_ACCESS_TOKEN")
+		body = %{"recipient": %{"id": senderId}, "message": %{"text": text}}
+		HTTPotion.post url, [body: body, headers: ["Content-Type", "application/json"]]
+		
 		{:ok, [messages|all_messages]}
 	end
 end
