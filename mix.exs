@@ -14,7 +14,7 @@ defmodule FinBot.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :maru],
+    [applications: [:logger, :maru, :httpotion],
 		mod: {FinBot, []}]
   end
 
@@ -28,6 +28,7 @@ defmodule FinBot.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:maru, "~> 0.10"}]
+    [{:maru, "~> 0.10"},
+		{:httpotion, "~> 3.0.0"}]
   end
 end
