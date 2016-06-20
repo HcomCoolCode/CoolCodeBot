@@ -14,7 +14,8 @@ defmodule FinBot.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :maru]]
+    [applications: [:logger, :maru],
+		mod: {FinBot, []}]
   end
 
   # Dependencies can be Hex packages:

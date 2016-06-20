@@ -5,7 +5,6 @@ defmodule FinBot.Router.Messenger do
 
 		desc "handshake with FB Messenger"
 		get do
-			IO.inspect conn
 			query_params = fetch_query_params(conn).query_params
 			case query_params["hub.mode"] do
 				"subscribe" ->
@@ -19,14 +18,13 @@ defmodule FinBot.Router.Messenger do
 			end
 		end
 
-		desc "main entry point got FB Messenger"
+		desc "main entry point for FB Messenger"
 		pipeline do
 			plug Plug.Parsers, parsers: [:json],
 			json_decoder: Poison
 		end
 		post do
-			IO.inspect conn
-			IO.inspect params
+			IO.inspect conn.params
 			text(conn, "okay")
 		end
 	end
