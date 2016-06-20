@@ -8,7 +8,9 @@ defmodule FinBot.Handlers.EchoSendHandler do
 
 	def handle_event({:messages, messages}, all_messages) do
 		entry = hd(messages["entry"])
-		IO.inspect(entry)
+		message = hd(entry["messaging"])
+		IO.inspect(message)
+
 		{:ok, [messages|all_messages]}
 	end
 end
