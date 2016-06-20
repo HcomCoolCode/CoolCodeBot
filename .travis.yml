@@ -1,3 +1,10 @@
 language: elixir
 elixir:
-  - 1.2.2
+- 1.2.2
+deploy:
+  provider: heroku
+  api_key:
+    secure: KPrEAZjLA6JaBty2G8aA2kzo7DBQVjYMfAZSuiW+7S0dPA3+aoRIH5Evp7hcXBNumkGkIHn/tVuEtNLZka0ndjiLpIus09buuDsbmLLthB0KyiWS/TIcYTfRmLjnTDY5VAHuMuSKwcGdhq1AeokC96wrW4LqupTYcvUUAqdYro1glrATxlE6dCPHtL5ePp54iLnW9TMoi5zsWyYG/To5Iuwy35pvQ1BT+MHFXJv2834PF6rb3hlDfPXTVEdFC0eSIIAsZWvFQzL2LyOQeV9fjNqJoHtJHJ9jRpVXobR1Q6PmR4ptzPczY297NgY0JXrbuZr4RxhZJ3Mk8qDlOSa5S+p0kQ6a+DA/ot8DmdpXEn4of9xmZjJfHx9pUeST7px0rmO/nVTJtzh1WRWVpJDmTss0m7qIOKnEFMA0Lxtq+XFCwzIMzCVZoH1i3DCcaSPgMEEC7ykFe0YK7RC6gMAgPzBBlNiKG2gbgGjkUA/57zaVatsNuHWvtZzVgd6qvEomMrJ7dybyT/U2oLAROz9O1EKc5qG8hHFFFlqF7qIvANdp4KbpAefzGhUREtnMBbP6mfixLLjMzaPD6fl1FbKVFkArKUdSUzWQVx9RLZabvtUlgQlUgkONwOenEax4dfya16ImlgyCsQ+uScpx/OeYr7Rk4ptRUZqTCmqa4xOt8N0=
+  app: vast-ridge-39858
+  on:
+    repo: HcomCoolCode/CoolCodeBot
