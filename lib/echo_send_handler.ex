@@ -11,6 +11,8 @@ defmodule FinBot.Handlers.EchoSendHandler do
 		message = hd(entry["messaging"])
 		text = message["message"]["text"]
 		IO.inspect(text)
+		senderId = message["sender"]["id"]
+		IO.inspect(senderId)
 		{:ok, [messages|all_messages]}
 	end
 end
