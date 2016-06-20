@@ -9,7 +9,7 @@ defmodule FinBot.Handlers.StartHandlers do
 	#
 
 	def init([arg]) do
-#		GenEvent.add_handler(arg.manager, LoggerHandler, [])
+		GenEvent.add_handler(arg.manager, LoggerHandler, [])
 		GenEvent.add_handler(arg.manager, EchoSendHandler, [])
 		{:ok, %{}}
 	end
