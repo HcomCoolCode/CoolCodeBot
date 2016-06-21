@@ -29,6 +29,7 @@ defmodule MsgSplitHandlerTest do
 	test "can split a message" do
 		res = MsgSplitHandler.split(@a_message)
 		assert is_list(res)
+		assert 1 == length(res)
 		assert res == [%{"sender": %{
 											 "id": "USER_ID"
 														},
