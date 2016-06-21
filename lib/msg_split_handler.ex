@@ -14,6 +14,5 @@ defmodule FinBot.Handlers.MsgSplitHandler do
 	def split(%{"entry": entries}) do
 		entries
 		|> Enum.flat_map(fn(%{"messaging": messaging}) -> messaging end)
-		|> IO.inspect
 	end
 end
