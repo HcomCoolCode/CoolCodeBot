@@ -1,6 +1,6 @@
 defmodule FinBot.Handlers.StartHandlers do
 	use GenServer
-	alias FinBot.Handlers.{LoggerHandler, EchoSendHandler}
+	alias FinBot.Handlers.{LoggerHandler, EchoSendHandler, TShirtSender}
 	
 	def start_link(args) do
 		GenServer.start_link(__MODULE__, args)
@@ -11,6 +11,7 @@ defmodule FinBot.Handlers.StartHandlers do
 	def init([arg]) do
 		GenEvent.add_handler(arg.manager, LoggerHandler, [])
 		GenEvent.add_handler(arg.manager, EchoSendHandler, [])
+		GenEvent.add_handler(arg.manager, TShirtSender, [])
 		# need a handler to save all messages from FB
 		{:ok, %{}}
 	end
