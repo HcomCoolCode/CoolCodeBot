@@ -18,7 +18,7 @@ defmodule FinBot.Handlers.TShirtSender do
 		url = "https://graph.facebook.com/v2.6/me/messages?access_token=" <> System.get_env("FB_PAGE_ACCESS_TOKEN")
 		request_body = %{
 			"recipient": %{
-				"id": "1358602087490476"
+				"id": senderId
 								 },
 			"message": %{
 				"attachment": %{
