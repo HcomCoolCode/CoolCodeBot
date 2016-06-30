@@ -21,10 +21,11 @@ defmodule MsgSplitHandlerTest do
 															"text": "hello, world!"
 														}
 											},
-													%{}
+													%{"message": %{}}
 												]
 									},
-											%{"messaging": [%{},%{}]}
+											%{"messaging": [%{"message": %{}},
+																			%{"message": %{}}]}
 										]
 									}
 	
@@ -112,12 +113,12 @@ defmodule MsgSplitHandlerTest do
 														 %{
 															 "id": 1,
 															 "time": 1457764198246,
-															 "messaging": [%{thing: "two"}]
+															 "messaging": [%{message: "two"}]
 												 }
 													 ]
 													}}
 		GenEvent.notify(events, event1)
 		assert_receive event1
-		assert_receive {:message, %{thing: "two"}}
+		assert_receive {:message, %{message: "two"}}
 	end
 end
