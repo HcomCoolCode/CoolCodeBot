@@ -1,14 +1,21 @@
 defmodule FinBot.Handlers.MsgSplitHandler do
 	use GenEvent
 
-	def init(_args) do
+	def init(%{manager: manager}) do
 		IO.inspect "Msg Split Handler"
-		{:ok, []}
+		{:ok, manager}
 	end
 
-	def handle_event({:messages, message}, all_messages) do
+	def handle_event({:messages, messages}, manager) do
 		#split and send
-		{:ok, [message|all_messages]}
+		split(messages)
+		|> Enum.each(&GenEvent.notify(manager, {:message, &1}))
+		
+		{:ok, manager}
+	end
+	
+	def handle_event(_msg, manager) do
+		{:ok, manager}
 	end
 
 	def split(%{"entry": entries}) do
