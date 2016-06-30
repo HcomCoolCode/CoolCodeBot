@@ -12,6 +12,7 @@ defmodule FinBot.Handlers.StartHandlers do
 		GenEvent.add_handler(manager, LoggerHandler, [])
 		GenEvent.add_handler(manager, EchoSendHandler, [])
 		GenEvent.add_handler(manager, MsgSplitHandler, %{manager: manager})
+		GenEvent.add_handler(manager, HelpHandler, [])
 		# need a handler to save all messages from FB
 		{:ok, %{}}
 	end
