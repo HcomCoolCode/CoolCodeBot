@@ -6,8 +6,8 @@ defmodule FinBot.Handlers.LoggerHandler do
 		{:ok, []}
 	end
 	
-	def handle_event({:messages, messages}, state) do
-		IO.inspect(messages)
+	def handle_event(message, state) do
+		IO.inspect(message)
 		{:ok, state}
 	end
 	

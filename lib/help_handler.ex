@@ -10,10 +10,7 @@ defmodule FinBot.Handlers.HelpHandler do
 	end
 	
 	def handle_event({:message, message}, state) do
-		%{"sender":
-			%{"id": senderId},
-			"message":
-				%{"text": msgText}} = message
+		%{id: senderId, text: msgText} = decompose(message)
 		if wantsHelp?(msgText) do
 			SendFb.post(senderId, @help_text)
 		end
@@ -22,6 +19,14 @@ defmodule FinBot.Handlers.HelpHandler do
 
 	def handle_event(_message, state) do
 		{:ok, state}
+	end
+
+	def decompose(message) do
+		%{"sender" =>
+			%{"id" => senderId},
+			"message" =>
+			%{"text" => msgText}} = message
+		%{id: senderId, text: msgText}
 	end
 	
 	def wantsHelp?(text) do
