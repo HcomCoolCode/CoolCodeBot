@@ -18,9 +18,9 @@ defmodule FinBot.Handlers.MsgSplitHandler do
 		{:ok, manager}
 	end
 
-	def split(%{"entry": entries}) do
+	def split(%{"entry" => entries}) do
 		entries
-		|> Enum.flat_map(fn(%{"messaging": messaging}) -> messaging end)
-		|> Enum.filter(&Map.has_key?(&1, :message))
+		|> Enum.flat_map(fn(%{"messaging" => messaging}) -> messaging end)
+		|> Enum.filter(&Map.has_key?(&1, "message"))
 	end
 end
