@@ -19,6 +19,10 @@ defmodule FinBot.Handlers.HelpHandler do
 		end
 		{:ok, state}
 	end
+
+	def handle_event(_message, state) do
+		{:ok, state}
+	end
 	
 	def wantsHelp?(text) do
 		text =~ ~r<help|info|commands>i
