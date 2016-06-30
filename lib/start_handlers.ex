@@ -1,6 +1,6 @@
 defmodule FinBot.Handlers.StartHandlers do
 	use GenServer
-	alias FinBot.Handlers.{LoggerHandler, EchoSendHandler, TShirtSender}
+	alias FinBot.Handlers.{LoggerHandler, EchoSendHandler, TShirtSender,MsgSplitHandler, HelpHandler}
 	
 	def start_link(args) do
 		GenServer.start_link(__MODULE__, args)
