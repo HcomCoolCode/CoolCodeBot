@@ -3,6 +3,7 @@ defmodule FinBot.Handlers.MyFirstHandler do
 	alias FinBot.SendFb
 	
 	@help_text "funny isn't it"
+	@help_negative_text "ohh i am so sorry"
 
 	def init(state) do
 		IO.inspect "Fun Handler is ready to handle help"
@@ -14,6 +15,10 @@ defmodule FinBot.Handlers.MyFirstHandler do
 		if wantsFun?(msgText) do
 			SendFb.post(senderId, @help_text)
 		end
+
+if isSad?(msgText) do
+			SendFb.post(senderId, @help_negative_text)
+		end		
 		{:ok, state}
 	end
 
@@ -32,4 +37,9 @@ defmodule FinBot.Handlers.MyFirstHandler do
 	def wantsFun?(text) do
 		text =~ ~r<fun>i
 	end
+
+	def isSad?(text) do
+		text =~ ~r<sad>i
+	end
+
 end
